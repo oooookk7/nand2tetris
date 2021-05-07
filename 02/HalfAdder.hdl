@@ -1,0 +1,25 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/02/HalfAdder.hdl
+
+/**
+ * "HalfAdder" chip adds 2 inputs A and B and returns the carry and its sum.
+ *
+ * Example:
+ *
+ * [1]     See right 1st row. Sum should be 0 and carry is 1.
+ *  . 1 +
+ *  . 1
+ *  - -
+ *  . 0
+ */
+
+CHIP HalfAdder {
+    IN a, b;
+    OUT sum, carry;
+
+    PARTS:
+    Xor(a=a, b=b, out=sum);
+    And(a=a, b=b, out=carry);
+}

@@ -1,0 +1,26 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/02/FullAdder.hdl
+
+/**
+ * "FullAdder" chip adds 2 inputs A and B, including the previous carry C and returns the result carry and its sum.
+ *
+ * Example:
+ *
+ * [0][1]       See right 2nd row. C should be 1, and carry should be 0. The sum should be 1.
+ *  0  0 1 +
+ *  1  0 1
+ *  -  - -
+ *  1  1 0
+ */
+
+CHIP FullAdder {
+    IN a, b, c;
+    OUT sum, carry;
+
+    PARTS:
+    HalfAdder(a=a, b=b, sum=ABSum, carry=ABCarry);
+    HalfAdder(a=ABSum, b=c, sum=sum, carry=sumCarry);
+    Or(a=ABCarry, b=sumCarry, out=carry);
+}

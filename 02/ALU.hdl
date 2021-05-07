@@ -1,0 +1,103 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/02/ALU.hdl
+
+/**
+ * "ALU" chip does a bunch of arithmetic operations. These operations are just an example, and may not represent the actual real-life ALU used in current computer chips today.
+ * Note that the order may matter here for the test to pass.
+ *
+ * if (zx == 1): // Operation that sets x to 0.
+ *   x = 0;
+ * if (zy == 1): // Operation that sets y to 0.
+ *   y = 0;
+ * if (nx == 1): // Operation that sets not x (inverse x).
+ *   x = !x;
+ * if (ny == 1): // Operation that sets not y (inverse y).
+ *   y = !y;
+ * if (f == 1): // Operation that adds x and y.
+ *   out = x + y;
+ * else: // Operation that bitwises x and y.
+ *   out = x & y;
+ * if (no == 1): // Operation that sets not out (inverse out).
+ *   out = !out;
+ * if (out == 0): // Determines if output would be zero return.
+ *   zr = 1;
+ * elif (out < 1): // Determines if output would be negative. The largest bit contains the negative bit.
+ *   ng = 1;
+ *
+ * How does bitwise operation work? It simply does an operation for each bit section (A, B, C, D).
+ *
+ * For example in AND case,
+ *
+ * A B C D
+ * -------
+ * 0 1 0 1
+ * 1 0 0 1
+ * - - - -
+ * 0 0 0 1
+ *
+ * For example in OR case,
+ *
+ * A B C D
+ * -------
+ * 0 1 0 1
+ * 1 0 0 1
+ * - - - -
+ * 1 1 0 1
+
+
+ * Computes one of the following functions:
+ * x+y, x-y, y-x, 0, 1, -1, x, y, -x, -y, !x, !y,
+ * x+1, y+1, x-1, y-1, x&y, x|y on two 16-bit inputs,
+ * according to 6 input bits denoted zx,nx,zy,ny,f,no.
+ * In addition, the ALU computes two 1-bit outputs:
+ * if the ALU output == 0, zr is set to 1; otherwise zr is set to 0;
+ * if the ALU output < 0, ng is set to 1; otherwise ng is set to 0.
+ */
+
+// Implementation: the ALU logic manipulates the x and y inputs
+// and operates on the resulting values, as follows:
+// if (zx == 1) set x = 0        // 16-bit constant
+// if (nx == 1) set x = !x       // bitwise not
+// if (zy == 1) set y = 0        // 16-bit constant
+// if (ny == 1) set y = !y       // bitwise not
+// if (f == 1)  set out = x + y  // integer 2's complement addition
+// if (f == 0)  set out = x & y  // bitwise and
+// if (no == 1) set out = !out   // bitwise not
+// if (out == 0) set zr = 1
+// if (out < 0) set ng = 1
+
+CHIP ALU {
+    IN x[16], y[16], zx, nx, zy, ny, f, no;
+    OUT out[16], zr, ng;
+
+    PARTS:
+    // Executes zx operation.
+    Mux16(a=x, b=false, sel=zx, out=zxOut);
+
+    // Executes zy operation.
+    Mux16(a=y, b=false, sel=zy, out=zyOut);
+
+    // Executes nx operation.
+    Not16(in=zxOut, out=notZxOut);
+    Mux16(a=zxOut, b=notZxOut, sel=nx, out=nxOut);
+
+    // Executes ny operation.
+    Not16(in=zyOut, out=notZyOut);
+    Mux16(a=zyOut, b=notZyOut, sel=ny, out=nyOut);
+
+    // Executes the f operation.
+    Add16(a=nxOut, b=nyOut, out=f1Out);
+    And16(a=nxOut, b=nyOut, out=f0Out);
+    Mux16(a=f0Out, b=f1Out, sel=f, out=fOut);
+
+    // Executes the no operation.
+    Not16(in=fOut, out=notOut);
+    Mux16(a=fOut, b=notOut, sel=no, out=out, out[0..7]=zrBits1, out[8..15]=zrBits2, out[15]=ng);
+
+    Or8Way(in=zrBits1, out=zrOut1);
+    Or8Way(in=zrBits2, out=zrOut2);
+    Or(a=zrOut1, b=zrOut2, out=zrOut);
+    Not(in=zrOut, out=zr);
+}
