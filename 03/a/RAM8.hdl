@@ -1,0 +1,27 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/03/a/RAM8.hdl
+
+/**
+ * "RAM8" chip contains 8 registers, and if the load is enabled, changes will be stored on the specific register based on its specified address for the next time frame.
+ */
+
+CHIP RAM8 {
+    IN in[16], load, address[3];
+    OUT out[16];
+
+    PARTS:
+    DMux8Way(in=load, sel=address, a=add1, b=add2, c=add3, d=add4, e=add5, f=add6, g=add7, h=add8);
+
+    Register(in=in, load=add1, out=out1);
+    Register(in=in, load=add2, out=out2);
+    Register(in=in, load=add3, out=out3);
+    Register(in=in, load=add4, out=out4);
+    Register(in=in, load=add5, out=out5);
+    Register(in=in, load=add6, out=out6);
+    Register(in=in, load=add7, out=out7);
+    Register(in=in, load=add8, out=out8);
+
+    Mux8Way16(a=out1, b=out2, c=out3, d=out4, e=out5, f=out6, g=out7, h=out8, sel=address, out=out);
+}
