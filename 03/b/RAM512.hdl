@@ -4,7 +4,7 @@
 // File name: projects/03/b/RAM512.hdl
 
 /**
- * "RAM512" chip contains 512 registers (8 RAM64s), and if the load is enabled, changes will be stored on the specific register based on its specified address for the next time frame.
+ * "RAM512" chip contains 512 (2^9) registers (8 RAM64s), and if the load (at time t) is enabled, changes will be stored on the specific register based on its specified address for the next time frame.
  * The first 6 bits targets the register in each RAM, and the last 3 bits targets the RAM.
  */
 

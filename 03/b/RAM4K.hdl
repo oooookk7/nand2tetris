@@ -4,7 +4,7 @@
 // File name: projects/03/b/RAM4K.hdl
 
 /**
- * "RAM4K" chip contains 4k registers (8 RAM512s), and if the load is enabled, changes will be stored on the specific register based on its specified address for the next time frame.
+ * "RAM4K" chip contains 4k (2^12) registers (8 RAM512s), and if the load (at time t) is enabled, changes will be stored on the specific register based on its specified address for the next time frame.
  * The first 9 bits targets the register in each RAM, and the last 3 bits targets the RAM.
  */
 

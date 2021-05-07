@@ -4,7 +4,7 @@
 // File name: projects/03/a/RAM64.hdl
 
 /**
- * "RAM64" chip contains 64 registers (8 RAM8s), and if the load is enabled, changes will be stored on the specific register based on its specified address for the next time frame.
+ * "RAM64" chip contains 64 (2^6) registers (8 RAM8s), and if the load (at time t) is enabled, changes will be stored on the specific register based on its specified address for the next time frame.
  * The first 3 bits targets the register in each RAM, and the last 3 bits targets the RAM.
  */
 

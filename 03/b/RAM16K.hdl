@@ -4,7 +4,8 @@
 // File name: projects/03/b/RAM16K.hdl
 
 /**
- * "RAM16K" chip contains 16k registers (8 RAM4Ks), and if the load is enabled, changes will be stored on the specific register based on its specified address for the next time frame.
+ * "RAM16K" chip contains 16k (2^14) registers (8 RAM4Ks), and if the load (at time t) is enabled, changes will be stored on the specific register based on its specified address for the next time frame.
+ * The first 12 bits targets the register in each RAM, and the last 3 bits targets the RAM.
  */
 
 CHIP RAM16K {

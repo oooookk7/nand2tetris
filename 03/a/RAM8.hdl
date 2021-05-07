@@ -4,7 +4,7 @@
 // File name: projects/03/a/RAM8.hdl
 
 /**
- * "RAM8" chip contains 8 registers, and if the load is enabled, changes will be stored on the specific register based on its specified address for the next time frame.
+ * "RAM8" chip contains 8 (2^3) registers, and if the load (at time t) is enabled, changes will be stored on the specific register based on its specified address for the next time frame.
  */
 
 CHIP RAM8 {
