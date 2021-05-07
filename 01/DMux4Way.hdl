@@ -1,0 +1,34 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/DMux4Way.hdl
+
+/**
+ * "DMux4Way" gate: Filters input to A, B, C or D depending on flag set.
+ *
+ * if sel[0] == 0 and sel[1] == 0:
+ *   a = in; b = 0; c = 0; d = 0;
+ * elif sel[0] == 1 and sel[1] == 0:
+ *   a = 0; b = 1; c = 0; d = 0;
+ * elif sel[0] == 0 and sel[1] == 1:
+ *   a = 0; b = 0; c = 1; d = 0;
+ * else:
+ *   a = 0; b = 0; c = 0; d = 1;
+ *
+ * A = 00, B = 01, C = 10, D = 11.
+ */
+
+CHIP DMux4Way {
+    IN in, sel[2];
+    OUT a, b, c, d;
+
+    PARTS:
+    DMux(in=true, sel=sel[0], a=isAC, b=isBD);
+    DMux(in=isAC, sel=sel[1], a=isA, b=isC);
+    DMux(in=isBD, sel=sel[1], a=isB, b=isD);
+
+    And(a=in, b=isA, out=a);
+    And(a=in, b=isB, out=b);
+    And(a=in, b=isC, out=c);
+    And(a=in, b=isD, out=d);
+}

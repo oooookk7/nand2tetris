@@ -1,0 +1,27 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/Mux8Way16.hdl
+
+/**
+ * "Mux8Way16" gate: Returns output for each bit as A, B, C, D, E, F, G or H depending on flag set.
+ *
+ * (for i as each 0 to 15):
+ *   if sel[0] == 0 and sel[1] == 0 and sel[2] == 0:
+ *     out[i] = a[i];
+ *   elif ...
+ * (end for)
+ *
+ * For sel:
+ * A = 000, B = 001, C = 010, D = 011, E = 100, F = 101, G = 110, H = 111.
+ */
+
+CHIP Mux8Way16 {
+    IN a[16], b[16], c[16], d[16], e[16], f[16], g[16], h[16], sel[3];
+    OUT out[16];
+
+    PARTS:
+    Mux4Way16 (a[0..15]=a, b[0..15]=b, c[0..15]=c, d[0..15]=d, sel=sel[0..1], out=ABCDMux);
+    Mux4Way16 (a[0..15]=e, b[0..15]=f, c[0..15]=g, d[0..15]=h, sel=sel[0..1], out=EFGHMux);
+    Mux16 (a[0..15]=ABCDMux, b[0..15]=EFGHMux, sel=sel[2], out=out);
+}

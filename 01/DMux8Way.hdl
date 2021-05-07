@@ -1,0 +1,26 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/DMux8Way.hdl
+
+/**
+ * "DMux8Way" gate: Filters input to A, B, C, D, E, F, G or H depending on flag set.
+ *
+ * if sel[0] == 0 and sel[1] == 0 and sel[2] == 0:     // 000
+ *   a = in; ...
+ * elif sel[0] == 1 and sel[1] == 0 and sel[2] == 0:   // 001
+ *   b = in; ...
+ * ...
+ *
+ * A = 000, B = 001, C = 010, D = 011, E = 100, F = 101, G = 110, H = 111.
+ */
+
+CHIP DMux8Way {
+    IN in, sel[3];
+    OUT a, b, c, d, e, f, g, h;
+
+    PARTS:
+    DMux(in=in, sel=sel[2], a=ABCDOutput, b=EFGHOutput);
+    DMux4Way(in=ABCDOutput, sel[0..1]=sel[0..1], a=a, b=b, c=c, d=d);
+    DMux4Way(in=EFGHOutput, sel[0..1]=sel[0..1], a=e, b=f, c=g, d=h);
+}

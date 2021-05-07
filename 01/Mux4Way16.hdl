@@ -1,0 +1,27 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/Mux4Way16.hdl
+
+/**
+ * "Mux4Way16" gate: Returns output for each bit as A, B, C or D depending on flag set.
+ *
+ * (for i as each 0 to 15):
+ *   if sel[0] == 0 and sel[1] == 0:
+ *     out[i] = a[i];
+ *   elif ...
+ * (end for)
+ *
+ * For sel:
+ * A = 00, B = 01, C = 10, D = 11.
+ */
+
+CHIP Mux4Way16 {
+    IN a[16], b[16], c[16], d[16], sel[2];
+    OUT out[16];
+
+    PARTS:
+    Mux16(a[0..15]=a, b[0..15]=c, sel=sel[1], out=ACMux);
+    Mux16(a[0..15]=b, b[0..15]=d, sel=sel[1], out=BDMux);
+    Mux16(a[0..15]=ACMux, b[0..15]=BDMux, sel=sel[0], out=out);
+}
