@@ -2,7 +2,7 @@
 
 This project contains project codes learnt from the self-learning course [nand2tetris](https://www.nand2tetris.org/course).
 
-# Project 1: Boolean Logic Gates
+### Project 1: Boolean Logic Gates
 
 The boolean table for each logic gate can be found in the related `.cmp` files.
 
