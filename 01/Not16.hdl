@@ -4,7 +4,7 @@
 // File name: projects/01/Not16.hdl
 
 /**
- * "And16" gate: Returns the inverse of the input for each bit.
+ * "And16" chip: Returns the inverse of the input for each bit.
  * (for i as each 0 to 15):
  *   if (in[i] == 1):
  *     out[i] = 0;

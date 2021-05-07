@@ -4,7 +4,7 @@
 // File name: projects/01/DMux8Way.hdl
 
 /**
- * "DMux8Way" gate: Filters input to A, B, C, D, E, F, G or H depending on flag set.
+ * "DMux8Way" chip: Filters input to A, B, C, D, E, F, G or H depending on flag set.
  *
  * if sel[0] == 0 and sel[1] == 0 and sel[2] == 0:     // 000
  *   a = in; ...

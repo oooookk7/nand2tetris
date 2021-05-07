@@ -4,7 +4,7 @@
 // File name: projects/01/And.hdl
 
 /**
- * "And" gate: Checks if both A and B is true.
+ * "And" chip: Checks if both A and B is true.
  *
  * if (a == 1 and b == 1):
  *   out = 1;

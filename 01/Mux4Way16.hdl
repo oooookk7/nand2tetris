@@ -4,7 +4,7 @@
 // File name: projects/01/Mux4Way16.hdl
 
 /**
- * "Mux4Way16" gate: Returns output for each bit as A, B, C or D depending on flag set.
+ * "Mux4Way16" chip: Returns output for each bit as A, B, C or D depending on flag set.
  *
  * (for i as each 0 to 15):
  *   if sel[0] == 0 and sel[1] == 0:

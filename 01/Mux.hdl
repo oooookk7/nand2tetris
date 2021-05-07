@@ -4,7 +4,7 @@
 // File name: projects/01/Mux.hdl
 
 /**
- * "Mux" gate: Returns output as A or B depending on flag set.
+ * "Mux" chip: Returns output as A or B depending on flag set.
  *
  * if sel == 0:
  *   out = a;

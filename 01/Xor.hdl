@@ -4,7 +4,7 @@
 // File name: projects/01/Xor.hdl
 
 /**
- * "Xor" gate: Checks if A is not equals to B.
+ * "Xor" chip: Checks if A is not equals to B.
  *
  * if (a == b):
  *   out = 0;

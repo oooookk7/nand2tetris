@@ -4,7 +4,7 @@
 // File name: projects/01/DMux4Way.hdl
 
 /**
- * "DMux4Way" gate: Filters input to A, B, C or D depending on flag set.
+ * "DMux4Way" chip: Filters input to A, B, C or D depending on flag set.
  *
  * if sel[0] == 0 and sel[1] == 0:
  *   a = in; b = 0; c = 0; d = 0;

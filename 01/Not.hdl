@@ -4,7 +4,7 @@
 // File name: projects/01/Not.hdl
 
 /**
- * "Not" gate: Returns the inverse of input.
+ * "Not" chip: Returns the inverse of input.
  *
  * if (in == 1):
  *   out = 0;

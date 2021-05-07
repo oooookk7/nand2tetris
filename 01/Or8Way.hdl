@@ -4,7 +4,7 @@
 // File name: projects/01/Or8Way.hdl
 
 /**
- * "Or8Way" gate: Checks for each bit if either is true.
+ * "Or8Way" chip: Checks for each bit if either is true.
  *
  * if (in[0] or in[1] or ..):
  *   out = 1;

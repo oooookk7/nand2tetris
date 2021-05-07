@@ -4,7 +4,7 @@
 // File name: projects/01/Or16.hdl
 
 /**
- * "Or16" gate: Checks for each bit if either A or B is true.
+ * "Or16" chip: Checks for each bit if either A or B is true.
  *
  * (for i as each 0 to 15):
  *   if (a[i] == 1 or b[i] == 1):

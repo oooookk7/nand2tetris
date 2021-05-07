@@ -4,7 +4,7 @@
 // File name: projects/01/And16.hdl
 
 /**
- * "And16" gate: Checks for each bit if A and B is true.
+ * "And16" chip: Checks for each bit if A and B is true.
  *
  * (for i as each 0 to 15):
  *   if (a[i] == 1 and b[i] == 1):

@@ -4,7 +4,7 @@
 // File name: projects/01/Or.hdl
 
 /**
- * "Or" gate: Checks if either A and B is true.
+ * "Or" chip: Checks if either A and B is true.
  *
  * if (a == 1 or b == 1):
  *   out = 1;

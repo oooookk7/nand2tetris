@@ -4,7 +4,7 @@
 // File name: projects/01/Mux16.hdl
 
 /**
- * "Mux16" gate: Returns output for each bit as A or B depending on flag set.
+ * "Mux16" chip: Returns output for each bit as A or B depending on flag set.
  *
  * (for i as each 0 to 15):
  *   if sel == 0:
