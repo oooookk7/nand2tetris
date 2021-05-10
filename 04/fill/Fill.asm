@@ -23,7 +23,7 @@
 //   index = SCREEN;
 //   counter = 24576 - SCREEN;
 //
-//   while (counter < 0):
+//   while (counter != 0):
 //     RAM[index] = color;
 //     counter -= 1;
 //     index += 1;
@@ -41,7 +41,7 @@ M=0
 M=0
 
 (DETECT)
-  @24575
+  @24576
   D=A
 
   @counter
@@ -54,7 +54,7 @@ M=0
   M=D
 
   @counter
-  M=D-M
+  M=M-D
 
   @KBD
   D=M
