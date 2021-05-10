@@ -59,7 +59,7 @@ Then in a machine-level compiled code:
 
 The CPU, RAM and Input/Output devices (e.g. keyboard, mouse, hard-disk, computer screen) are connected to a system bus that carries information, determine where a data instruction should be sent. The CPU utilitises this bus to interact with the RAM and Input/Output to do operations.
 
-Another way to look at it is an assembly-level command `ADD R1, R2, R9`, which represents an addition operation from R1 and R2 to be stored into R9 gets compiled into a machine-level code `1010 001100 011001` and `1011 001100 011001` (where `1010` represents `ADD`, `001100` R1, `0001` R2 and `011001` R3).
+Another way to look at it is an assembly-level command `ADD R1, R2, R9`, which represents an addition operation from R1 and R2 to be stored into R9 gets compiled into a machine-level code `1010 001100 011001` (where `1010` represents `ADD`, `001100` R1, `0001` R2 and `011001` R3).
 
 It is vital to understand the registers [within the CPU](https://computersciencewiki.org/index.php/Registers_within_the_CPU).
 
@@ -75,13 +75,9 @@ It is vital to understand the registers [within the CPU](https://computerscience
 The Hack assembly commands can be found in the PDF tutorial for "Project 4" in [here](https://www.nand2tetris.org/course).
 
 
+### [Project 5](https://www.nand2tetris.org/project05): Computer Architecture
 
+Focuses on the how the RAM, screen, keyboard, memory and CPU interacts with each other as a computer. For example, in the CPU it contains the Program Counter (PC), ALU, Data Register (DR) and Address Register (AD). Each instruction given to the CPU is either stored or fetched to/from the AD or DR, and then passed to the ALU to execute, after which (if it's an AD fetch) the PC increments (sometimes it may skip if command is jump), executing the next instruction.
 
-
-
-
-
-
-
-
+_See Project 1 on how to navigate the project._
 
