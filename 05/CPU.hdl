@@ -1,0 +1,123 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/05/CPU.hdl
+
+/**
+ * The Hack CPU (Central Processing unit), consisting of an ALU,
+ * two registers named A and D, and a program counter named PC.
+ * The CPU is designed to fetch and execute instructions written in
+ * the Hack machine language. In particular, functions as follows:
+ * Executes the inputted instruction according to the Hack machine
+ * language specification. The D and A in the language specification
+ * refer to CPU-resident registers, while M refers to the external
+ * memory location addressed by A, i.e. to Memory[A]. The inM input
+ * holds the value of this location. If the current instruction needs
+ * to write a value to M, the value is placed in outM, the address
+ * of the target location is placed in the addressM output, and the
+ * writeM control bit is asserted. (When writeM==0, any value may
+ * appear in outM). The outM and writeM outputs are combinational:
+ * they are affected instantaneously by the execution of the current
+ * instruction. The addressM and pc outputs are clocked: although they
+ * are affected by the execution of the current instruction, they commit
+ * to their new values only in the next time step. If reset==1 then the
+ * CPU jumps to address 0 (i.e. pc is set to 0 in next time step) rather
+ * than to the address resulting from executing the current instruction.
+ *
+ * Format: [I]--[A][CCCCCC][DDD][JJJ]
+ *
+ * In case for [I]:
+ *  - 0: A-instruction
+ *  - 1: C-instruction
+ *
+ * For A-instruction:
+ *  - First 15-bits are the 15-bit value stored in A-register (e.g. from 0..14).
+ *
+ * For C-instruction:
+ *  - [A]: Determines if it will operate on the A-register input or M input.
+ *    Values represents:
+ *    - 0: A input
+ *    - 1: M input
+ *
+ *  - [CCCCCC]: Determine which function the ALU will compute.
+ *    From right to left position, if position is set to 1:
+ *    - 0: no
+ *    - 1: f
+ *    - 2: ny
+ *    - 3: zy
+ *    - 4: nx
+ *    - 5: zx
+ *
+ *  - [DDD]: Determine which registers should accept ALU result output.
+ *    Values represents:
+ *    - 001: D-register
+ *    - 010: A-register
+ *    - 100: Memory
+ *
+ *  - [JJJ]: Used for branching control.
+ *    From right to left position, if position is set to 1:
+ *    - 0: JGT command
+ *    - 1: JEQ command
+ *    - 2: JLT command
+ *
+ * Notes:
+ * 1. WriteM is defined when memory is used.
+ * 2. Program Counter (PC) uses the out from ALU.
+ * 3. If there are jumps, do not increment the PC to the next instruction.
+ *
+ * Credits: https://zhongchuyun.gitbooks.io/nand2tetris/content/chapter-5.html.
+ * Helped me to figure out the input values and was used as a reference.
+ */
+
+CHIP CPU {
+
+    IN  inM[16], instruction[16], reset;
+    OUT outM[16], writeM, addressM[15], pc[15];
+
+    PARTS:
+    // Put your code here:
+    Not(in=instruction[15], out=isAOpcode);
+    Mux16(a=ALUOut, b=instruction, sel=isAOpcode, out=muxIntoA);
+
+    Or(a=isAOpcode, b=instruction[5], out=loadA);
+    ARegister(in=muxIntoA, load=loadA, out=AOut, out[0..14]=addressM);
+
+    And(a=instruction[15], b=instruction[12], out=AorM);
+    Mux16(a=AOut, b=inM, sel=AorM, out=YIn);
+
+    And(a=instruction[15], b=instruction[4], out=loadD);
+    DRegister(in=ALUOut, load=loadD, out=XIn);
+
+    And(a=instruction[15], b=instruction[3], out=writeM);
+
+    ALU(x=XIn, y=YIn,
+        out=ALUOut,
+        out=outM,
+        zx=instruction[11],
+        nx=instruction[10],
+        zy=instruction[9],
+        ny=instruction[8],
+        f=instruction[7],
+        no=instruction[6],
+        zr=zrOut,
+        ng=ngOut
+    );
+
+    Not(in=ngOut, out=isPositive);
+    Not(in=zrOut, out=isNotZero);
+
+    And(a=instruction[15], b=instruction[0], out=JGT);
+    And(a=isPositive, b=isNotZero, out=isGreaterThanZero);
+    And(a=JGT, b=isGreaterThanZero, out=matchJGT);
+
+    And(a=instruction[15], b=instruction[1], out=JEQ);
+    And(a=JEQ, b=zrOut, out=matchJEQ);
+
+    And(a=instruction[15], b=instruction[2], out=JLT);
+    And(a=JLT, b=ngOut, out=matchJLT);
+
+    Or(a=matchJGT, b=matchJEQ, out=matchJGTEQ);
+    Or(a=matchJGTEQ, b=matchJLT, out=matchJMP);
+
+    PC(in=AOut, load=matchJMP, inc=true, reset=reset, out[0..14]=pc);
+}
