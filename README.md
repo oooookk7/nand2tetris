@@ -77,7 +77,7 @@ The Hack assembly commands can be found in the PDF tutorial for "Project 4" in [
 
 ### [Project 5](https://www.nand2tetris.org/project05): Computer Architecture
 
-Focuses on the how the RAM, screen, keyboard, memory and CPU interacts with each other as a computer. For example, in the CPU it contains the Program Counter (PC), ALU, Data Register (DR) and Address Register (AD). Each instruction given to the CPU is either stored or fetched to/from the AD or DR, and then passed to the ALU to execute, after which (if it's an AD fetch) the PC increments (sometimes it may skip if command is jump), executing the next instruction.
+Focuses on the how the RAM, screen, keyboard, memory and CPU interacts with each other as a computer. Narrowing down to the CPU it contains the Program Counter (PC), ALU, Data Register (DR) and Address Register (AD). Each instruction given to the CPU is either stored or fetched to/from the AD or DR, and then passed to the ALU to execute, after which (if it's an AD fetch) the PC increments (sometimes it may skip if command is jump), executing the next instruction.
 
 _See Project 1 on how to navigate the project._
 
