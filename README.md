@@ -109,10 +109,12 @@ For `C`-instruction: This is for compute instruction.
 
 - `1`: The instruction code.
 - `[A]`: Determines if it will operate on the `A`-register input or memory (M) input.
+
         - Value `0`: `A`-register input
         - Value `1`: Memory (M) input
 
 - `[543210]`: Determine which function the ALU will compute. Read from right-to-left. Set to `1` (enable instruction) or `0` (disable instruction) in current CPU cycle.
+
         - Position `0`: "no" ALU instruction
         - Position `1`: "f" ALU instruction
         - Position `2`: "ny" ALU instruction
@@ -121,11 +123,13 @@ For `C`-instruction: This is for compute instruction.
         - Position `5`: "zx" ALU instruction
 
 - `[DDD]`: Determine which registers should accept ALU result output.
+
         - Value `001`: Store to `D`-register
         - Value `010`: Store `A`-register
         - Value `100`: Store to memory (M)
 
 - `[CBA]`: Used for branching control. Read from right-to-left. Set to `1` (enable instruction) or `0` (disable instruction) in current CPU cycle.
+
         - Position `A`: JGT command
         - Position `B`: JEQ command
         - Position `C`: JLT command
