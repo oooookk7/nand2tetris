@@ -24,42 +24,6 @@
  * CPU jumps to address 0 (i.e. pc is set to 0 in next time step) rather
  * than to the address resulting from executing the current instruction.
  *
- * Format: [I]--[A][CCCCCC][DDD][JJJ]
- *
- * In case for [I]:
- *  - 0: A-instruction
- *  - 1: C-instruction
- *
- * For A-instruction:
- *  - First 15-bits are the 15-bit value stored in A-register (e.g. from 0..14).
- *
- * For C-instruction:
- *  - [A]: Determines if it will operate on the A-register input or M input.
- *    Values represents:
- *    - 0: A input
- *    - 1: M input
- *
- *  - [CCCCCC]: Determine which function the ALU will compute.
- *    From right to left position, if position is set to 1:
- *    - 0: no
- *    - 1: f
- *    - 2: ny
- *    - 3: zy
- *    - 4: nx
- *    - 5: zx
- *
- *  - [DDD]: Determine which registers should accept ALU result output.
- *    Values represents:
- *    - 001: D-register
- *    - 010: A-register
- *    - 100: Memory
- *
- *  - [JJJ]: Used for branching control.
- *    From right to left position, if position is set to 1:
- *    - 0: JGT command
- *    - 1: JEQ command
- *    - 2: JLT command
- *
  * Notes:
  * 1. WriteM is defined when memory is used.
  * 2. Program Counter (PC) uses the out from ALU.

@@ -61,6 +61,12 @@ The CPU, RAM and Input/Output devices (e.g. keyboard, mouse, hard-disk, computer
 
 Another way to look at it is an assembly-level command `ADD R1, R2, R9`, which represents an addition operation from R1 and R2 to be stored into R9 gets compiled into a machine-level code `1010 001100 011001` (where `1010` represents `ADD`, `001100` R1, `0001` R2 and `011001` R3).
 
+**Types of registers:**
+
+- `D`-register: Used to only store data values.
+- `A`-register: Used to store the address.
+- `M`-register: Used to store the current value of the `A`-register which can be manipulated.
+
 It is vital to understand the registers [within the CPU](https://computersciencewiki.org/index.php/Registers_within_the_CPU).
 
 **How to navigate the project:**
@@ -78,6 +84,51 @@ The Hack assembly commands can be found in the PDF tutorial for "Project 4" in [
 ### [Project 5](https://www.nand2tetris.org/project05): Computer Architecture
 
 Focuses on the how the RAM, screen, keyboard, memory and CPU interacts with each other as a computer. In this Hack computer, it contains the ROM, CPU and Memory. The ROM stores the instructions (read-only), which can be retrieved by the CPU to start executing the function, and a reset (restart button) starts the entire process again. Narrowing down to the CPU, it contains the Program Counter (PC), ALU, Data Register (DR) and Address Register (AD). Each instruction given to the CPU is either stored or fetched to/from the AD or DR, and then passed to the ALU to execute, after which (if it's an AD fetch) the PC increments (sometimes it may skip if command is jump), executing the next instruction.
+
+**Instruction Format:**
+
+> General format: `[I]` `[---------------]` in 16-bit binary.
+
+There are two types of instructions (`[I]`):
+
+- Value `0`: Represents `A`-instruction
+- Value `1`: Represents `C`-instruction
+
+
+For `A`-instruction: This is for address instruction.
+
+> Format: `0` `[MMMMMMMMMMMMMMM]`
+
+- `0`: The instruction code.
+- `[MMMMMMMMMMMMMMM]`: The 15-bit value stored in the `A`-register from `0..14`.
+
+
+For `C`-instruction: This is for compute instruction.
+
+> Format: `1` `[--]` `[A]` `[543210]` `[DDD]` `[CBA]`
+
+- `1`: The instruction code.
+- `[A]`: Determines if it will operate on the `A`-register input or memory (M) input.
+        - Value `0`: `A`-register input
+        - Value `1`: Memory (M) input
+
+- `[543210]`: Determine which function the ALU will compute. Read from right-to-left. Set to `1` (enable instruction) or `0` (disable instruction) in current CPU cycle.
+        - Position `0`: "no" ALU instruction
+        - Position `1`: "f" ALU instruction
+        - Position `2`: "ny" ALU instruction
+        - Position `3`: "zy" ALU instruction
+        - Position `4`: "nx" ALU instruction
+        - Position `5`: "zx" ALU instruction
+
+- `[DDD]`: Determine which registers should accept ALU result output.
+        - Value `001`: Store to `D`-register
+        - Value `010`: Store `A`-register
+        - Value `100`: Store to memory (M)
+
+- `[CBA]`: Used for branching control. Read from right-to-left. Set to `1` (enable instruction) or `0` (disable instruction) in current CPU cycle.
+        - Position `A`: JGT command
+        - Position `B`: JEQ command
+        - Position `C`: JLT command
 
 _See Project 1 on how to navigate the project._
 
