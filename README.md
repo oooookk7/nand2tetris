@@ -95,7 +95,7 @@ There are two types of instructions (`[I]`):
 - Value `1`: Represents `C`-instruction
 
 
-For `A`-instruction: This is for address instruction.
+**For `A`-instruction**: This is for address instruction.
 
 > Format: `0` `[MMMMMMMMMMMMMMM]`
 
@@ -103,7 +103,7 @@ For `A`-instruction: This is for address instruction.
 - `[MMMMMMMMMMMMMMM]`: The 15-bit value stored in the `A`-register from `0..14`.
 
 
-For `C`-instruction: This is for compute instruction.
+**For `C`-instruction**: This is for compute instruction.
 
 > Format: `1` `[--]` `[A]` `[543210]` `[DDD]` `[CBA]`
 
