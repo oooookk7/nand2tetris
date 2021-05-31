@@ -99,21 +99,25 @@ There are two types of instructions (`[I]`):
 
 > Format: `0` `[MMMMMMMMMMMMMMM]`
 
-- `0`: The instruction code.
-- `[MMMMMMMMMMMMMMM]`: The 15-bit value stored in the `A`-register from `0..14`.
+| Param | Description |
+| ----- | ----------- |
+| `0` | The instruction code. |
+| `[MMMMMMMMMMMMMMM]` | The 15-bit value stored in the `A`-register from `0..14`. |
 
 
 **For `C`-instruction**: This is for compute instruction.
 
 > Format: `1` `[--]` `[A]` `[543210]` `[DDD]` `[CBA]`
 
-- `1`: The instruction code.
-- `[A]`: Determines if it will operate on the `A`-register input or memory (M) input.
+| Param | Description |
+| ----- | ----------- |
+| `1` | The instruction code. |
+| `[A]` | Determines if it will operate on the `A`-register input or memory (M) input. 
 
      - Value `0`: `A`-register input
      - Value `1`: Memory (M) input
-
-- `[543210]`: Determine which function the ALU will compute. Read from right-to-left. Set to `1` (enable instruction) or `0` (disable instruction) in current CPU cycle.
+|
+| `[543210]` | Determine which function the ALU will compute. Read from right-to-left. Set to `1` (enable instruction) or `0` (disable instruction) in current CPU cycle.
 
      - Position `0`: "no" ALU instruction
      - Position `1`: "f" ALU instruction
@@ -122,20 +126,21 @@ There are two types of instructions (`[I]`):
      - Position `4`: "nx" ALU instruction
      - Position `5`: "zx" ALU instruction
 
-- `[DDD]`: Determine which registers should accept ALU result output.
+|
+| `[DDD]` | Determine which registers should accept ALU result output.
 
      - Value `001`: Store to `D`-register
      - Value `010`: Store `A`-register
      - Value `100`: Store to memory (M)
-
-- `[CBA]`: Used for branching control. Read from right-to-left. Set to `1` (enable instruction) or `0` (disable instruction) in current CPU cycle.
+|
+| `[CBA]` | Used for branching control. Read from right-to-left. Set to `1` (enable instruction) or `0` (disable instruction) in current CPU cycle.
 
      - Position `A`: JGT command
      - Position `B`: JEQ command
      - Position `C`: JLT command
+|
 
 _See Project 1 on how to navigate the project._
-
 
 
 
