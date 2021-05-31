@@ -99,7 +99,7 @@ There are two types of instructions (`[I]`):
 
 **For `A`-instruction**: This is for address instruction.
 
-> Format: `0` `[MMMMMMMMMMMMMMM]`
+> Format: `0[MMMMMMMMMMMMMMM]`
 
 | Param | Description |
 | ----- | ----------- |
