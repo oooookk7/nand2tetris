@@ -8,7 +8,7 @@ This project contains project codes learnt from the self-paced course [nand2tetr
 
 Focuses on the basic boolean logic gates. For example, XOR, OR and AND gates, which are the fundamental building blocks. 
 
-**How to navigate the project:**
+#### How to navigate the project:
 
 1. The boolean table for each logic chip can be found in the related `.cmp` files.
 2. The hardware description language (HDL) can be found in the related `.hdl` files.
@@ -19,7 +19,7 @@ The primitive chips can be found in the tutorial for "Hardware Simulator" in [he
 
 ### [Project 2](https://www.nand2tetris.org/project02): Boolean Arithmetic
 
-Focuses on the arithmetic logic gates. For example, a basic ALU (Arithmetic Logic Unit) that does basic arithmetic and logic operations in the CPU, which contains as well a CU (Control Unit) that directs the operation of the processor for the ALUs (e.g. what to compute).
+Focuses on the arithmetic logic gates. For example, a basic ALU (Arithmetic Logic Unit) that does basic arithmetic and logic operations in the CPU, which contains as well a CU (Control Unit) that directs the operation of the processor for the ALUs (e.g. what to compute). It may contain AGU (Address Generation Unit) that calculates addresses used by the CPU to access the main memory (thus executing various machine instructions can be reduced), the MMU (Memory Management Unit) that translates logical addresses to physical RAM addresses (which acts like a proxy), and caches for faster fetches (in which different levels L1/L2/L3/L4 depends on hierarchy). 
 
 _See Project 1 on how to navigate the project._
 
@@ -61,7 +61,7 @@ The CPU, RAM and Input/Output devices (e.g. keyboard, mouse, hard-disk, computer
 
 Another way to look at it is an assembly-level command `ADD R1, R2, R9`, which represents an addition operation from R1 and R2 to be stored into R9 gets compiled into a machine-level code `1010 001100 011001` (where `1010` represents `ADD`, `001100` R1, `0001` R2 and `011001` R3).
 
-**Types of registers:**
+#### Types of registers:
 
 - `D`-register: Used to only store data values.
 - `A`-register: Used to store the address.
@@ -69,7 +69,7 @@ Another way to look at it is an assembly-level command `ADD R1, R2, R9`, which r
 
 It is vital to understand the registers [within the CPU](https://computersciencewiki.org/index.php/Registers_within_the_CPU).
 
-**How to navigate the project:**
+#### How to navigate the project:
 
 1. The assembly scripts are tagged as `.asm` files.
 2. The result table for each assembly script is stored in the relevant  `.cmp` files.
@@ -85,7 +85,7 @@ The Hack assembly commands can be found in the PDF tutorial for "Project 4" in [
 
 Focuses on the how the RAM, screen, keyboard, memory and CPU interacts with each other as a computer. In this Hack computer, it contains the ROM, CPU and Memory. The ROM stores the instructions (read-only), which can be retrieved by the CPU to start executing the function, and a reset (restart button) starts the entire process again. Narrowing down to the CPU, it contains the Program Counter (PC), ALU, Data Register (DR) and Address Register (AD). Each instruction given to the CPU is either stored or fetched to/from the AD or DR, and then passed to the ALU to execute, after which (if it's an AD fetch) the PC increments (sometimes it may skip if command is jump), executing the next instruction.
 
-**Instruction Format:**
+#### Instruction Format:
 
 > General format: `[I]` `[---------------]` in 16-bit binary.
 
@@ -135,4 +135,10 @@ There are two types of instructions (`[I]`):
      - Position `C`: JLT command
 
 _See Project 1 on how to navigate the project._
+
+
+
+
+
+
 
