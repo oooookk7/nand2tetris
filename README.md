@@ -89,7 +89,7 @@ Focuses on the how the RAM, screen, keyboard, memory and CPU interacts with each
 
 ### Instruction Format:
 
-> General format: `[I][---------------]` in 16-bit binary.
+> General format: `[I]---------------` in 16-bit binary.
 
 There are two types of instructions (`[I]`):
 
