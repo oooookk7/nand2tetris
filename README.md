@@ -122,7 +122,7 @@ There are two types of instructions (`[I]`):
 _See Project 1 on how to navigate the project._
 
 
-### [Project 6](https://www.nand2tetris.org/project06): The Assembler
+## [Project 6](https://www.nand2tetris.org/project06): The Assembler
 
 Focuses on the assembler that translates the `.asm` (assembly code) file to `.hack` (machine-level code) file.
 
@@ -191,7 +191,7 @@ For comp mnemonics (e.g. `M-D` in `M=M-D`):
 | `D-M` | `1010011` |
 | `M-D` | `1000111` |
 | `D&M` | `1000000` |
-| `D|M` | `1010101` |
+| `D\|M` | `1010101` |
 | `0` | `0101010` |
 | `1` | `0111111` |
 | `-1` | `0111010` |
