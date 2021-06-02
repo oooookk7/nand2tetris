@@ -122,7 +122,119 @@ There are two types of instructions (`[I]`):
 _See Project 1 on how to navigate the project._
 
 
+### [Project 6](https://www.nand2tetris.org/project06): The Assembler
+
+Focuses on the assembler that translates the `.asm` (assembly code) file to `.hack` (machine-level code) file.
+
+To understand the formats for `A`-instruction and `C`-instruction, reference the previous project.
 
 
+#### Parser module
+
+The Parser module parses each commands from the assembly language file into readable components such as fields and symbols (with whitespaces and comments removed). 
+
+Commands are filtered into:
+
+| Command Type | Description |
+| ------------ | ----------- |
+| `A_COMMAND` | The symbol command (e.g. `@TEST`) |
+| `L_COMMAND` | The pseudo command (e.g. `(TEST)`) |
+| `C_COMMAND` | The code command (e.g. `M=D` or `0;JMP`) |
 
 
+#### SymbolTable module
+
+The SymbolTable module translates the symbols (or variables) into actual addresses (RAM/ROM addresses) as part of the translation process.
+
+For reserved symbols:
+
+| Symbols | Address |
+| ------- | ------- |
+| `SP` | `0` |
+| `LCL` | `1` |
+| `ARG` | `2` |
+| `THIS` | `3` |
+| `THAT` | `4` |
+| `SCREEN` | `16384` |
+| `KBD` | `24576` |
+| `R`[`0`-`15`] | `0` - `15` |
+
+New variables must be stored from address `16` onward.
+
+#### Code module
+
+The Code module translates the assembly language mnemonics into binary codes (used in `C`-instruction).
+
+For dest mnemonics (e.g. `M` in `M=A`):
+
+| Name | Binary |
+| ---- | ------ |
+| `null` | `000` |
+| `M` | `001` |
+| `D` | `010` |
+| `MD` | `011` |
+| `A` | `100` |
+| `AM` | `101` |
+| `AD` | `110` |
+| `AMD` | `111` |
+
+For comp mnemonics (e.g. `M-D` in `M=M-D`):
+
+| Name | Binary |
+| ---- | ------ |
+| `M` | `1110000` |
+| `!M` | `1110001` |
+| `M+1` | `1110111` |
+| `-M` | `1110011` |
+| `M-1` | `1110010` |
+| `D+M` | `1000010` |
+| `D-M` | `1010011` |
+| `M-D` | `1000111` |
+| `D&M` | `1000000` |
+| `D|M` | `1010101` |
+| `0` | `0101010` |
+| `1` | `0111111` |
+| `-1` | `0111010` |
+| `D` | `0001100` |
+| `A` | `0110000` |
+| `!D` | `0001101` |
+| `!A` | `0110001` |
+| `-D` | `0001111` |
+| `-A` | `0110011` |
+| `D+1` | `0011111` |
+| `A+1` | `0110111` |
+| `D-1` | `0001110` |
+| `A-1` | `0110010` |
+| `D+A` | `0000010` |
+| `D-A` | `0010011` |
+| `A-D` | `0000111` |
+| `D&A` | `0000000` |
+| `D|A` | `0010101` |
+
+For jump mnemonics (e.g. `JMP` in `0;JMP`):
+
+| Name | Binary |
+| ---- | ------ |
+| `null` | `000` |
+| `JGT` | `001` |
+| `JEQ` | `010` |
+| `JGE` | `011` |
+| `JLT` | `100` |
+| `JNE` | `101` |
+| `JLE` | `110` |
+| `JMP` | `111` |
+
+
+#### The Assembler
+Finally, the Assembler would utilise these modules and work in phases:
+
+1. First pass: Starting from `count=0`, if current command is a `L_COMMAND` from Parser, add to the SymbolTable with address as `count`. Increment `count` if it is not a `L_COMMAND` to load into the ROM address (e.g. `R0` - `R15`).
+
+2. Second pass: For every `A_COMMAND`, add to the SymbolTable with address starting from `16` onward (denoting RAM address) if variable does not exist in the SymbolTable and tabulate into `A`-instruction. For `C_COMMAND`, tabulate the binary representation of the `C`-instruction. Note that `L_COMMAND` is ignored here as it is a pseudo command.
+
+
+#### How to navigate the project
+
+1. Build the assembler into `go` binary via `cd 06/assembler && go build -o ../assembler_exec`.
+2. Run `./assembler_exec pong/Pong.asm` for example. Switch the file as needed.
+3. Compare the files for testing via `comm -3 rect/RectL.cmp.hack rect/RectL.hack` for example.
