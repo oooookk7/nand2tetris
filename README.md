@@ -209,7 +209,7 @@ For comp mnemonics (e.g. `M-D` in `M=M-D`):
 | `D-A` | `0010011` |
 | `A-D` | `0000111` |
 | `D&A` | `0000000` |
-| `D|A` | `0010101` |
+| `D\|A` | `0010101` |
 
 For jump mnemonics (e.g. `JMP` in `0;JMP`):
 
