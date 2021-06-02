@@ -165,7 +165,7 @@ New variables must be stored from address `16` onward.
 
 The Code module translates the assembly language mnemonics into binary codes (used in `C`-instruction).
 
-For dest mnemonics (e.g. `M` in `M=A`):
+For dest mnemonics (e.g. `M` in `M=A`). Refer to `[DDD]` of `C`-instruction.
 
 | Name | Binary |
 | ---- | ------ |
@@ -178,7 +178,7 @@ For dest mnemonics (e.g. `M` in `M=A`):
 | `AD` | `110` |
 | `AMD` | `111` |
 
-For comp mnemonics (e.g. `M-D` in `M=M-D`):
+For comp mnemonics (e.g. `M-D` in `M=M-D`). Refer to `[A][543210]` of `C`-instruction:
 
 | Name | Binary |
 | ---- | ------ |
@@ -211,7 +211,7 @@ For comp mnemonics (e.g. `M-D` in `M=M-D`):
 | `D&A` | `0000000` |
 | `D\|A` | `0010101` |
 
-For jump mnemonics (e.g. `JMP` in `0;JMP`):
+For jump mnemonics (e.g. `JMP` in `0;JMP`). Refer to `[CBA]` of `C`-instruction.
 
 | Name | Binary |
 | ---- | ------ |
