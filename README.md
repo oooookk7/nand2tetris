@@ -129,7 +129,7 @@ Focuses on the assembler that translates the `.asm` (assembly code) file to `.ha
 To understand the formats for `A`-instruction and `C`-instruction, reference the previous project.
 
 
-#### Parser module
+### Parser module
 
 The Parser module parses each commands from the assembly language file into readable components such as fields and symbols (with whitespaces and comments removed). 
 
@@ -142,7 +142,7 @@ Commands are filtered into:
 | `C_COMMAND` | The code command (e.g. `M=D` or `0;JMP`) |
 
 
-#### SymbolTable module
+### SymbolTable module
 
 The SymbolTable module translates the symbols (or variables) into actual addresses (RAM/ROM addresses) as part of the translation process.
 
@@ -161,7 +161,7 @@ For reserved symbols:
 
 New variables must be stored from address `16` onward.
 
-#### Code module
+### Code module
 
 The Code module translates the assembly language mnemonics into binary codes (used in `C`-instruction).
 
@@ -225,7 +225,7 @@ For jump mnemonics (e.g. `JMP` in `0;JMP`):
 | `JMP` | `111` |
 
 
-#### The Assembler
+### The Assembler
 Finally, the Assembler would utilise these modules and work in phases:
 
 1. First pass: Starting from `count=0`, if current command is a `L_COMMAND` from Parser, add to the SymbolTable with address as `count`. Increment `count` if it is not a `L_COMMAND` to load into the ROM address (e.g. `R0` - `R15`).
@@ -233,7 +233,7 @@ Finally, the Assembler would utilise these modules and work in phases:
 2. Second pass: For every `A_COMMAND`, add to the SymbolTable with address starting from `16` onward (denoting RAM address) if variable does not exist in the SymbolTable and tabulate into `A`-instruction. For `C_COMMAND`, tabulate the binary representation of the `C`-instruction. Note that `L_COMMAND` is ignored here as it is a pseudo command.
 
 
-#### How to navigate the project
+### How to navigate the project
 
 1. Build the assembler into `go` binary via `cd 06/assembler && go build -o ../assembler_exec`.
 2. Run `./assembler_exec pong/Pong.asm` for example. Switch the file as needed.
