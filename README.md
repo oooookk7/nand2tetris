@@ -28,6 +28,10 @@ There are 2 types of MOSFET - the pMOSFET and nMOSFET. In the nMOSFET, the sourc
 
 The n-type usually introduces another element such as phosphorus (which consists of 5 valence electrons) as it fits with silicon with an extra electron to move around. And as for p-type, it introduces another element such as boron (which consists of 3 valence electrons) as it creates a "hole" for the extra electron to fit in.
 
+<img src="https://cdn.britannica.com/40/76440-004-4997EDA7/CMOS-metal-oxide-semiconductor-pair-semiconductors-voltage-fashion.jpg" width="450" height="auto"/>
+
+(Source: [Britannica](https://www.britannica.com/) - _See the top-left in default state and bottom-left when voltage is applied_)
+
 This is the default state when no voltage is applied to the gate, since the n-type electron would fit into the p-type "hole" to create the depletion layer in-between the source/drain and the well, where the layer is negative hence effectively creates a barrier against the rest of the moving electrons from the source/drain to the well. This would represent the `0` state.
 
 When positive voltage is applied to the gate, it attracts the electrons from the n-type to the p-type and overcomes the repulsion from the depletion layer (and hence shrinking it). Electric current would flow from source to sink, thus making the `1` state. _Point to recap is that particles becomes negatively charged when it gains electrons, and positively charged when it lacks electrons._
