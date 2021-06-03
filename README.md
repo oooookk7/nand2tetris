@@ -1,12 +1,12 @@
-# Nand2Tetris
-
-This project contains project codes learnt from the self-paced course [nand2tetris](https://www.nand2tetris.org/course).
+# [Nand2Tetris](https://www.nand2tetris.org)
 
 > Ensure that you have download the related project software tools [here](https://www.nand2tetris.org/software).
 
 ## [Project 1](https://www.nand2tetris.org/project01): Boolean Logic
 
-Focuses on the basic boolean logic gates. For example, XOR, OR and AND gates, which are the fundamental building blocks. 
+Focuses on the basic boolean logic gates that are the fundamental building blocks that builds a computer. It is made up of transistors known as the [MOSFET (Metal–Oxide–Semiconductor Field-Effect Transistor)](https://en.wikipedia.org/wiki/MOSFET).
+
+The `Nand` would be a primitive gate and gates such as `And`, `And16`, `DMux`, `DMux4Way`, `DMux8Way`, `Mux`, `Mux16`, `Mux4Way16`, `Mux8Way16`, `Not`, `Not16`, `Or`, `Or16`, `Or8Way` and `Xor` would be implemented in this project using HDL (Hardware Description Language).
 
 ### How to navigate the project:
 
@@ -16,17 +16,37 @@ Focuses on the basic boolean logic gates. For example, XOR, OR and AND gates, wh
 
 The primitive chips can be found in the tutorial for "Hardware Simulator" in [here](https://www.nand2tetris.org/software).
 
+### How does the [MOSFET](https://en.wikipedia.org/wiki/MOSFET) transistor works?
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/MOSFET_functioning.svg/2560px-MOSFET_functioning.svg.png)
+<small>(Source: [Wikipedia](https://en.wikipedia.org/))</small>
+
+The MOSFET is made up of silicon and consists of the source, drain and gate terminals.
+
+There are 2 types of MOSFET - the pMOSFET and nMOSFET. In the nMOSFET, the source and drain are n-type and well p-type, and its the opposite for pMOSFET. The n/p-types are created from a process called doping, which introduces a foreign substance to modulate its electrical properties. In this example, we will use the nMOSFET.
+
+The n-type usually introduces another element such as phosphorus (which consists of 5 valence electrons) as it fits with silicon with an extra electron to move around. And as for p-type, it introduces another element such as boron (which consists of 3 valence electrons) as it creates a "hole" for the extra electron to fit in.
+
+This is the default state when no voltage is applied to the gate, since the n-type electron would fit into the p-type "hole" to create the depletion layer in-between the source/drain and the well, where the layer is negative hence effectively creates a barrier against the rest of the moving electrons from the source/drain to the well. This would represent the `0` state.
+
+When positive voltage is applied to the gate, it attracts the electrons from the n-type to the p-type and overcomes the repulsion from the depletion layer (and hence shrinking it). Electric current would flow from source to sink, thus making the `1` state. _Point to recap is that particles becomes negatively charged when it gains electrons, and positively charged when it lacks electrons._
+
 
 ## [Project 2](https://www.nand2tetris.org/project02): Boolean Arithmetic
 
-Focuses on the arithmetic logic gates. For example, a basic ALU (Arithmetic Logic Unit) that does basic arithmetic and logic operations in the CPU, which contains as well a CU (Control Unit) that directs the operation of the processor for the ALUs (e.g. what to compute). It may contain AGU (Address Generation Unit) that calculates addresses used by the CPU to access the main memory (thus executing various machine instructions can be reduced), the MMU (Memory Management Unit) that translates logical addresses to physical RAM addresses (which acts like a proxy), and caches for faster fetches (in which different levels L1/L2/L3/L4 depends on hierarchy). 
+Focuses on the arithmetic logic gates (built upon the logic gates from Project 1) that creates the ALU (Arithmetic Logic Unit) and itself, which is a part of the CPU (Central Processing Unit).
 
 _See Project 1 on how to navigate the project._
 
 
 ## [Project 3](https://www.nand2tetris.org/project03): Sequential Logic
 
-Focuses on the sequential logic gates. For example, a 1-bit register state is sequential (e.g. at time = 2 the current stored state is the output of time = 1), and it contains a load flag that enables writes to the bit register, else the state is locked. You could imagine an ever-looping circuit that determines if state changes at every discrete time frame (e.g. `out(t) = in(t-1)`. These bits can be found in the CPU processor register, or RAM memory.
+Focuses on the sequential logic gates that is used to create the RAM. It starts from `Bit` > `Register` > `RAM8` > ... > `RAM4K`.
+
+![](https://www.electronics-tutorials.ws/wp-content/uploads/2018/05/sequential-seq4.gif)
+<small>(Source: [Electronics Tutorials](https://www.electronics-tutorials.ws))</small>
+
+The 1-Bit register state is sequential (e.g. at time = 2 the current stored state is the output of time = 1), and it contains a load flag that enables writes to the bit register, else the state is locked. You could imagine an ever-looping circuit that determines if state changes at every discrete time frame (e.g. `out(t) = in(t-1)`. These Bits would be used to form a Register, and then a RAM/ROM.
 
 _See Project 1 on how to navigate the project._
 
@@ -57,9 +77,7 @@ Then in a machine-level compiled code:
 ...
 ```
 
-The CPU, RAM and Input/Output devices (e.g. keyboard, mouse, hard-disk, computer screen) are connected to a system bus that carries information, determine where a data instruction should be sent. The CPU utilitises this bus to interact with the RAM and Input/Output to do operations.
-
-Another way to look at it is an assembly-level command `ADD R1, R2, R9`, which represents an addition operation from R1 and R2 to be stored into R9 gets compiled into a machine-level code `1010 001100 011001` (where `1010` represents `ADD`, `001100` R1, `0001` R2 and `011001` R3).
+For example, the assembly-level command `ADD R1, R2, R9` represents an addition operation from R1 and R2 to be stored into R9 gets compiled into a machine-level code `1010 001100 011001` (where `1010` represents `ADD`, `001100` R1, `0001` R2 and `011001` R3).
 
 ### Types of registers:
 
@@ -85,7 +103,7 @@ The Hack assembly commands can be found in the PDF tutorial for "Project 4" in [
 
 ## [Project 5](https://www.nand2tetris.org/project05): Computer Architecture
 
-Focuses on the how the RAM, screen, keyboard, memory and CPU interacts with each other as a computer. In this Hack computer, it contains the ROM, CPU and Memory. The ROM stores the instructions (read-only), which can be retrieved by the CPU to start executing the function, and a reset (restart button) starts the entire process again. Narrowing down to the CPU, it contains the Program Counter (PC), ALU, Data Register (DR) and Address Register (AD). Each instruction given to the CPU is either stored or fetched to/from the AD or DR, and then passed to the ALU to execute, after which (if it's an AD fetch) the PC increments (sometimes it may skip if command is jump), executing the next instruction.
+Focuses on the building a computer based on the [Von Neumann architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture) using CPU, ROM, RAM, Scree and Keyboard.
 
 ### Instruction Format:
 
@@ -118,6 +136,60 @@ There are two types of instructions (`[I]`):
 | `[543210]` | Determine which function the ALU will compute. Read from right-to-left. Set to `1` (enable instruction) or `0` (disable instruction) in current CPU cycle.<br><ul><li>Position `0`: "no" ALU instruction</li><li>Position `1`: "f" ALU instruction</li><li>Position `2`: "ny" ALU instruction</li><li>Position `3`: "zy" ALU instruction</li><li>Position `4`: "nx" ALU instruction</li><li>Position `5`: "zx" ALU instruction</li></ul>|
 | `[DDD]` | Determine which registers should accept ALU result output.<br><ul><li>Value `001`: Store to `D`-register</li><li>Value `010`: Store `A`-register</li><li>Value `100`: Store to memory (M)</li></ul>|
 | `[CBA]` | Used for branching control. Read from right-to-left. Set to `1` (enable instruction) or `0` (disable instruction) in current CPU cycle.<br><ul><li>Position `A`: JGT command</li><li>Position `B`: JEQ command</li><li>Position `C`: JLT command</li></ul>|
+
+### Von Neumann Architecture
+
+![](https://upload.wikimedia.org/wikipedia/commons/4/4e/Computer_Systems_-_Von_Neumann_Architecture_Large_poster_anchor_chart.svg)
+<small>(Source: [Wikipedia](https://en.wikipedia.org/))</small>
+
+The Von Neumann architecture contains a processing unit with ALU and processor registers, CU (Control Unit) with IR (Instruction Register) and PC (Program Counter), a memory to store data, external storage, and instructions, and I/O (Input/Output) devices such as keyboard, mouse, computer screen, hard-disk. 
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Computer_system_bus.svg/220px-Computer_system_bus.svg.png)
+<small>(Source: [Wikipedia](https://en.wikipedia.org/))</small>
+
+The CPU, RAM and I/O devices are connected to a system bus that carries information to-and-fro, working as a proxy to determine where a data instruction should be sent. 
+
+It breaks down into 3 types of buses which the CPU utilitises this system bus to interact with the RAM and I/O devices to do operations:
+
+- Data bus: Carries information
+- Address bus: Determines where a data should be sent
+- Control bus: Determines the operations
+
+Unlike the [Harvard architecture](https://en.wikipedia.org/wiki/Harvard_architecture), the program instructions and data share the same memory and pathways.
+
+### The CPU  
+
+The CPU consists of:
+
+- ALU (Arithmetic Logic Unit): Does arithmetic and logic operations
+- CU (Control Unit): Directs the operation of the processor for the ALUs (e.g. what to compute)
+- Registers:
+    - User-Accessible Registers: Read and written by machines.
+        - Data registers: Used for operations (e.g. accumulator).
+        - Address registers: Used for holding memory addresses (e.g. RAM/ROM/Cache) used by instructions to access memory data (e.g. read/write data).
+        - PC (Program Counter): Used as an instruction pointer for the current memory address.
+    - Internal Registers: Used internally by CPU.
+        - IR (Instruction Register): Holds the current instruction being executed.
+        - Registers for fetching information from RAM memory separate from CPU memory or caches such as the MBR (Memory Buffer Register), MDR (Memory Data Register) and MAR (Memory Address Register).
+
+It also may contain:
+
+- Caches: Memory caches for faster fetches (such as L1/L2 etc.).
+- AGU (Address Generation Unit): Calculates addresses used by the CPU to access the main memory (thus executing various machine instructions can be reduced).
+- MMU (Memory Management Unit): Translates logical addresses to physical RAM addresses (which acts like a proxy).
+
+![](CPU-fetch-execute-cycle.png)
+<small>(Source: [Youtube @Craig'n'Dave](https://www.youtube.com/channel/UC0HzEBLlJxlrwBAHJ5S9JQg))
+
+On boot, the PC is predefined by the system's architecture, and these typically points to the set of instructions in the ROM (Read-Only Memory).
+
+1. In the Fetch stage, the instruction is fetched from the memory address in the PC and stored in the IR. The PC is then incremented.
+2. In the Decode stage, the decoder decodes the encoded instruction.
+3. In the Execute stage, the CU passes the instructions to either the ALU (for operations) or the the relevant registers (for reading/writing). 
+
+This cycle is then repeated until shutdown occurs.
+
+In summary, the ROM stores the instructions (read-only), that is retrieved by the CPU to start executing the instructions when the reset button (aka bootup). Each instruction passed to the CPU is either stored/fetched to/from the Address register or Data register, and the PC increments (which may be skip if command is JMP) and hence executing the next instruction.
 
 _See Project 1 on how to navigate the project._
 
