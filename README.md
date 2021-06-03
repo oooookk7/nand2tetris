@@ -212,7 +212,7 @@ The ROM stores the instructions (read-only), that is retrieved by the CPU to sta
 
 <img src="https://qph.fs.quoracdn.net/main-qimg-97e79f7eb02dce61dc9a6c9cafef606f.webp" width="350" height="auto">
     
-(Source: [Quora](https://www.quora.com/))
+(Source: [Quora](https://www.quora.com/) - _Example of a BIO -> GNU GRUB -> Linux OS booting process_)
     
 During the OS booting, the core primary program loaded is the [kernel](https://en.wikipedia.org/wiki/Kernel_(operating_system)) on startup after the bootloader as it handles all its processes (e.g. memory management, task scheduling, I/O), then the main user space file system and the system init scripts for Linux OS. The 
 
