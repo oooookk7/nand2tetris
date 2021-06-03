@@ -200,7 +200,23 @@ On boot, the PC is predefined by the system's architecture, and these typically 
 
 This cycle is then repeated until shutdown occurs.
 
-To fit this into the project, the ROM stores the instructions (read-only), that is retrieved by the CPU to start executing the instructions when the reset button (aka bootup). Each instruction passed to the CPU is either stored/fetched to/from the Address register or Data register, and the PC increments (which may be skip if command is JMP) and hence executing the next instruction.
+<img src="https://i2.wp.com/itsfoss.com/wp-content/uploads/2019/12/grub_screen.png?fit=800%2C450&ssl=1" width="350" height="auto"/>
+    
+(Source: [itsfoss.com](https://itsfoss.com/) - _Example of GNU GRUB loading during second boot process_)
+    
+<img src="https://blog.knoldus.com/wp-content/uploads/2021/01/BIOS-vs-UEFI-1416318644-1611826043375.png" width="350" height="auto">
+    
+(Source: [knoldus.com](https://blog.knoldus.com) - _The differences between UEFI/BIOS booting process_)
+    
+The ROM stores the instructions (read-only), that is retrieved by the CPU to start executing the instructions when the reset button (aka bootup). In the ROM, it may contain firmware such as the bootloader (e.g. BIOS/UEFI) in the first stage boot process, which initialises the OS (Operating System). It finds the configured primary boot device known as the MBR (Master Boot Record) that is the first sector of the bootable storage disk. The second stage boot process may involve systems (e.g. GNU GRUB) that loads an operating system properly and allow the transfers of execution to it (and may load extra device drivers). 
+
+<img src="https://qph.fs.quoracdn.net/main-qimg-97e79f7eb02dce61dc9a6c9cafef606f.webp" width="350" height="auto">
+    
+(Source: [Quora](https://www.quora.com/))
+    
+During the OS booting, the core primary program loaded is the [kernel](https://en.wikipedia.org/wiki/Kernel_(operating_system)) on startup after the bootloader as it handles all its processes (e.g. memory management, task scheduling, I/O), then the main user space file system and the system init scripts for Linux OS. The 
+
+Each instruction passed to the CPU is either stored/fetched to/from the Address register or Data register, and the PC increments (which may be skip if command is JMP) and hence executing the next instruction.
 
 _See Project 1 on how to navigate the project._
 
