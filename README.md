@@ -18,9 +18,9 @@ The primitive chips can be found in the tutorial for "Hardware Simulator" in [he
 
 ### How does the [MOSFET](https://en.wikipedia.org/wiki/MOSFET) transistor works?
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/MOSFET_functioning.svg/2560px-MOSFET_functioning.svg.png" width="550" height="auto"/>
+<img src="https://lh3.googleusercontent.com/proxy/psU23BjRfr_s72B2i4QfyQkG5GVO74nyIDHr7r7__vye_DL0EP6gHOuCSnqnsVG47sObUZ0reHIJPntQQrwgyntgJ2rfbX59oIhmHKB3Ad11LQ" width="350" height="auto"/>
 
-(Source: [Wikipedia](https://en.wikipedia.org/))
+(Source: [fourier.eng.hmc.edu](http://fourier.eng.hmc.edu/))
 
 The MOSFET is made up of silicon and consists of the source, drain and gate terminals.
 
@@ -143,13 +143,13 @@ There are two types of instructions (`[I]`):
     
 <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Computer_Systems_-_Von_Neumann_Architecture_Large_poster_anchor_chart.svg" width="550" height="auto"/>
 
-(Source: [Wikipedia](https://en.wikipedia.org/))
+(Source: [Wikimedia Commons](https://commons.wikimedia.org/))
 
 The Von Neumann architecture contains a processing unit with ALU and processor registers, CU (Control Unit) with IR (Instruction Register) and PC (Program Counter), a memory to store data, external storage, and instructions, and I/O (Input/Output) devices such as keyboard, mouse, computer screen, hard-disk. 
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Computer_system_bus.svg/220px-Computer_system_bus.svg.png" width="300" height="auto"/>
+<img src="https://2.bp.blogspot.com/-VdACaygyBRY/XAlsf6QnKtI/AAAAAAAABuw/IsHoSSZVBT8DIBmQ9bNKrPSbtQjCPvzcwCLcBGAs/s1600/Untitled.png" width="300" height="auto"/>
     
-(Source: [Wikipedia](https://en.wikipedia.org/))
+(Source: [mmrcse.blogspot.com](https://mmrcse.blogspot.com))
 
 The CPU, RAM and I/O devices are connected to a system bus that carries information to-and-fro, working as a proxy to determine where a data instruction should be sent. 
 
