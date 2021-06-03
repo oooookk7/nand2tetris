@@ -93,7 +93,7 @@ For example, the assembly-level command `ADD R1, R2, R9` represents an addition 
 | `A` | Used to store the pointer `@[VAR]` address. |
 | `M` | Used to store the current value of the `A`-register which can be manipulated (read from `D=M` or write from `M=1`). |
 
-For example, using `@[VAR]` would signify for the `A`-register to store `[VAR]`'s memory address location. The `D`-register stores the current value used for the machine code (e.g. accumulator or temporal reads to reference from). The `M`-register signifies a fetch of the data from `[VAR]`'s memory address.
+For example, using `@[VAR]` would signify for the `A`-register to store `[VAR]`'s memory address location. The `D`-register stores the current value used for the machine code (e.g. accumulator or temporal reads to reference from). The modifications to the `M`-"register" signifies a fetch or write from/to the data from `[VAR]`'s memory address location.
 
 It is vital to understand the registers [within the CPU](https://computersciencewiki.org/index.php/Registers_within_the_CPU).
 
