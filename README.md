@@ -89,9 +89,11 @@ For example, the assembly-level command `ADD R1, R2, R9` represents an addition 
 
 | Register | Description |
 | -------- | ----------- |
-| `D` | Used to only store data values. |
-| `A` | Used to store the address. |
-| `M` | Used to store the current value of the `A`-register which can be manipulated. |
+| `D` | Used to only store current data value used for operations. |
+| `A` | Used to store the pointer `@[VAR]` address. |
+| `M` | Used to store the current value of the `A`-register which can be manipulated (read from `D=M` or write from `M=1`). |
+
+For example, using `@[VAR]` would signify for the `A`-register to store `[VAR]`'s memory address location. The `D`-register stores the current operation value used for the machine/user code to keep the state. The `M`-register signifies a fetch of the data from `[VAR]`'s memory address.
 
 It is vital to understand the registers [within the CPU](https://computersciencewiki.org/index.php/Registers_within_the_CPU).
 
@@ -307,12 +309,11 @@ For jump mnemonics (e.g. `JMP` in `0;JMP`). Refer to `[CBA]` of `C`-instruction.
 
 
 ### The Assembler
-Finally, the Assembler would utilise these modules and work in phases:
+Finally, the Assembler would utilise these modules and work in 2 passes:
 
 1. First pass: Starting from `count=0`, if current command is a `L_COMMAND` from Parser, add to the SymbolTable with address as `count`. Increment `count` if it is not a `L_COMMAND` to load into the ROM address (e.g. `R0` - `R15`).
 
 2. Second pass: For every `A_COMMAND`, add to the SymbolTable with address starting from `16` onward (denoting RAM address) if variable does not exist in the SymbolTable and tabulate into `A`-instruction. For `C_COMMAND`, tabulate the binary representation of the `C`-instruction. Note that `L_COMMAND` is ignored here as it is a pseudo command.
-
 
 ### How to navigate the project
 
