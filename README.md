@@ -85,6 +85,8 @@ Then in a machine-level compiled code:
 
 For example, the assembly-level command `ADD R1, R2, R9` represents an addition operation from R1 and R2 to be stored into R9 gets compiled into a machine-level code `1010 001100 011001` (where `1010` represents `ADD`, `001100` R1, `0001` R2 and `011001` R3).
 
+Note that languages can be compiled/abstracted into levels such as this order: Assembly > C > C++ > Python > (Even more basic higher-level language).
+
 ### Types of registers:
 
 | Register | Description |
