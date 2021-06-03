@@ -18,8 +18,9 @@ The primitive chips can be found in the tutorial for "Hardware Simulator" in [he
 
 ### How does the [MOSFET](https://en.wikipedia.org/wiki/MOSFET) transistor works?
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/MOSFET_functioning.svg/2560px-MOSFET_functioning.svg.png)
-<small>(Source: [Wikipedia](https://en.wikipedia.org/))</small>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/MOSFET_functioning.svg/2560px-MOSFET_functioning.svg.png" width="550" height="auto"/>
+
+(Source: [Wikipedia](https://en.wikipedia.org/))
 
 The MOSFET is made up of silicon and consists of the source, drain and gate terminals.
 
@@ -43,8 +44,9 @@ _See Project 1 on how to navigate the project._
 
 Focuses on the sequential logic gates that is used to create the RAM. It starts from `Bit` > `Register` > `RAM8` > ... > `RAM4K`.
 
-![](https://www.electronics-tutorials.ws/wp-content/uploads/2018/05/sequential-seq4.gif)
-<small>(Source: [Electronics Tutorials](https://www.electronics-tutorials.ws))</small>
+<img src="https://electronicspost.com/wp-content/uploads/2015/04/57.png" width="350" height="auto"/>
+
+(Source: [Electronics Post](https://electronicspost.com))
 
 The 1-Bit register state is sequential (e.g. at time = 2 the current stored state is the output of time = 1), and it contains a load flag that enables writes to the bit register, else the state is locked. You could imagine an ever-looping circuit that determines if state changes at every discrete time frame (e.g. `out(t) = in(t-1)`. These Bits would be used to form a Register, and then a RAM/ROM.
 
@@ -138,14 +140,16 @@ There are two types of instructions (`[I]`):
 | `[CBA]` | Used for branching control. Read from right-to-left. Set to `1` (enable instruction) or `0` (disable instruction) in current CPU cycle.<br><ul><li>Position `A`: JGT command</li><li>Position `B`: JEQ command</li><li>Position `C`: JLT command</li></ul>|
 
 ### Von Neumann Architecture
+    
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Computer_Systems_-_Von_Neumann_Architecture_Large_poster_anchor_chart.svg" width="550" height="auto"/>
 
-![](https://upload.wikimedia.org/wikipedia/commons/4/4e/Computer_Systems_-_Von_Neumann_Architecture_Large_poster_anchor_chart.svg)
-<small>(Source: [Wikipedia](https://en.wikipedia.org/))</small>
+(Source: [Wikipedia](https://en.wikipedia.org/))
 
 The Von Neumann architecture contains a processing unit with ALU and processor registers, CU (Control Unit) with IR (Instruction Register) and PC (Program Counter), a memory to store data, external storage, and instructions, and I/O (Input/Output) devices such as keyboard, mouse, computer screen, hard-disk. 
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Computer_system_bus.svg/220px-Computer_system_bus.svg.png)
-<small>(Source: [Wikipedia](https://en.wikipedia.org/))</small>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Computer_system_bus.svg/220px-Computer_system_bus.svg.png" width="300" height="auto"/>
+    
+(Source: [Wikipedia](https://en.wikipedia.org/))
 
 The CPU, RAM and I/O devices are connected to a system bus that carries information to-and-fro, working as a proxy to determine where a data instruction should be sent. 
 
@@ -178,8 +182,9 @@ It also may contain:
 - AGU (Address Generation Unit): Calculates addresses used by the CPU to access the main memory (thus executing various machine instructions can be reduced).
 - MMU (Memory Management Unit): Translates logical addresses to physical RAM addresses (which acts like a proxy).
 
-![](CPU-fetch-execute-cycle.png)
-<small>(Source: [Youtube @Craig'n'Dave](https://www.youtube.com/channel/UC0HzEBLlJxlrwBAHJ5S9JQg))
+<img src="CPU-fetch-execute-cycle.png" width="550" height="auto"/>
+    
+(Source: [Youtube @Craig'n'Dave](https://www.youtube.com/channel/UC0HzEBLlJxlrwBAHJ5S9JQg))
 
 On boot, the PC is predefined by the system's architecture, and these typically points to the set of instructions in the ROM (Read-Only Memory).
 
