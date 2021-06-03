@@ -198,7 +198,7 @@ On boot, the PC is predefined by the system's architecture, and these typically 
 
 This cycle is then repeated until shutdown occurs.
 
-In summary, the ROM stores the instructions (read-only), that is retrieved by the CPU to start executing the instructions when the reset button (aka bootup). Each instruction passed to the CPU is either stored/fetched to/from the Address register or Data register, and the PC increments (which may be skip if command is JMP) and hence executing the next instruction.
+To fit this into the project, the ROM stores the instructions (read-only), that is retrieved by the CPU to start executing the instructions when the reset button (aka bootup). Each instruction passed to the CPU is either stored/fetched to/from the Address register or Data register, and the PC increments (which may be skip if command is JMP) and hence executing the next instruction.
 
 _See Project 1 on how to navigate the project._
 
