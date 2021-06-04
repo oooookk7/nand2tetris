@@ -167,7 +167,7 @@ There are two types of instructions (`[I]`):
     
 <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Computer_Systems_-_Von_Neumann_Architecture_Large_poster_anchor_chart.svg" width="550" height="auto"/>
 
-(Source: [Wikimedia Commons](https://commons.wikimedia.org/))
+(Source: [Wikimedia Commons, William Lau](https://commons.wikimedia.org/wiki/File:Computer_Systems_-_Von_Neumann_Architecture_Large_poster_anchor_chart.svg))
 
 The Von Neumann architecture contains a processing unit with ALU and processor registers, CU (Control Unit) with IR (Instruction Register) and PC (Program Counter), a memory to store data, external storage, and instructions, and I/O (Input/Output) devices such as keyboard, mouse, computer screen, hard-disk. 
 
@@ -230,7 +230,7 @@ The ROM stores the instructions (read-only), that is retrieved by the CPU to sta
 
 <img src="https://static.thegeekstuff.com/wp-content/uploads/2011/02/linux-boot-process.png" width="350" height="auto">
     
-(Source: [thegeekstuff.com - @RAMESH NATARAJAN](https://www.thegeekstuff.com/2011/02/linux-boot-process) - _Example of a BIO -> GNU GRUB -> Linux OS booting process_)
+(Source: [thegeekstuff.com, Ramesh Natarajan](https://www.thegeekstuff.com/2011/02/linux-boot-process) - _Example of a BIO -> GNU GRUB -> Linux OS booting process_)
     
 During the OS booting, the core primary program loaded is the [kernel](https://en.wikipedia.org/wiki/Kernel_(operating_system)) on startup after the bootloader as it handles all its processes (e.g. memory management, task scheduling, I/O), then the main user space file system and the system init scripts for Linux OS. 
 
