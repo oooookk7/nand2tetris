@@ -20,7 +20,7 @@ The primitive chips can be found in the tutorial for "Hardware Simulator" in [he
 
 <img src="https://lh3.googleusercontent.com/proxy/psU23BjRfr_s72B2i4QfyQkG5GVO74nyIDHr7r7__vye_DL0EP6gHOuCSnqnsVG47sObUZ0reHIJPntQQrwgyntgJ2rfbX59oIhmHKB3Ad11LQ" width="350" height="auto"/>
 
-(Source: [fourier.eng.hmc.edu](http://fourier.eng.hmc.edu/))
+(Source: [fourier.eng.hmc.edu](http://fourier.eng.hmc.edu/e84/lectures/ch4/node13.html))
 
 The MOSFET is made up of silicon and consists of the source, drain and gate terminals.
 
@@ -30,7 +30,7 @@ The n-type usually introduces another element such as phosphorus (which consists
 
 <img src="https://cdn.britannica.com/40/76440-004-4997EDA7/CMOS-metal-oxide-semiconductor-pair-semiconductors-voltage-fashion.jpg" width="450" height="auto"/>
 
-(Source: [Britannica](https://www.britannica.com/) - _See the top-left in default state and bottom-left when voltage is applied_)
+(Source: [Britannica](https://www.britannica.com/technology/complementary-metal-oxide-semiconductor) - _See the top-left in default state and bottom-left when voltage is applied_)
 
 This is the default state when no voltage is applied to the gate, since the n-type electron would fit into the p-type "hole" to create the depletion layer in-between the source/drain and the well, where the layer is negative hence effectively creates a barrier against the rest of the moving electrons from the source/drain to the well. This would represent the `0` state.
 
@@ -38,7 +38,7 @@ When positive voltage is applied to the gate, it attracts the electrons from the
 
 <img src="https://r2.community.samsung.com/t5/image/serverpage/image-id/933151iF107CE9663CFCA6D?v=1.0" width="350" height="auto" />
 
-(Source: [Samsung - @ddrs](https://r2.community.samsung.com/t5/user/viewprofilepage/user-id/3474922))
+(Source: [Samsung, @ddrs](https://r2.community.samsung.com/t5/Tech-Talk/Flash-memory/td-p/4457583))
 
 In the case of a flash memory cell (e.g. used for flash storage), it uses a [Floating-gate MOSFET](https://en.wikipedia.org/wiki/Floating-gate_MOSFET), where it contains two gates instead of one, where the top gate is called the CG (Control Gate) and the bottom is FG (Floating Gate). Because the FG is insulated by a sourrounding oxide, the electrons in the FG are trapped and will retain in there for years.
 
@@ -46,7 +46,7 @@ Turning on the voltage on the CG would cause the electrons to be pulled up to th
 
 <img src="https://www.researchgate.net/profile/Jagan-Meena/publication/265727614/figure/fig8/AS:201522748104719@1425058175786/Comparison-of-NOR-Flash-array-and-NAND-Flash-array-architectures.png" width="200" height="auto" />
 
-(Source: [ResearchGate - @Jagan Meena](https://www.researchgate.net/profile/Jagan-Meena))
+(Source: [ResearchGate, Jagan Meena et.](https://www.researchgate.net/publication/265727614_Overview_of_Emerging_Non-volatile_Memory_Technologies))
 
 The common types are the NAND and NOR gate flash memory cells. Generally, NAND cells are much prefer due to the NOR larger cell size resulting in a higher cost per bit and slower write and erase speeds. However, NOR cell are more reliable and rarely go through an issue like bit-flipping where some bits gets reversed, causing NAND flashes to be shipped with bad blocks scattered randomly through, having to manage bad block handling, as they are shipped with zero bad blocks with low bad block accumulation during its lifespan. In terms of power, NOR flash may typically require more current than NAND flash in the initial power on, but its standby current is much lower than NAND flash. Both instantaneous active power is comparable for both.
 
@@ -66,7 +66,7 @@ Focuses on the sequential logic gates that is used to create the RAM. It starts 
 
 <img src="https://electronicspost.com/wp-content/uploads/2015/04/57.png" width="350" height="auto"/>
 
-(Source: [Electronics Post](https://electronicspost.com))
+(Source: [Electronics Post, Sasmita](https://electronicspost.com/combinational-logic-circuit-vs-sequential-logic-circuit/))
 
 The 1-Bit register state is sequential (e.g. at time = 2 the current stored state is the output of time = 1), and it contains a load flag that enables writes to the bit register, else the state is locked. You could imagine an ever-looping circuit that determines if state changes at every discrete time frame (e.g. `out(t) = in(t-1)`. These Bits would be used to form a Register, and then a RAM/ROM.
 
@@ -173,7 +173,7 @@ The Von Neumann architecture contains a processing unit with ALU and processor r
 
 <img src="https://2.bp.blogspot.com/-VdACaygyBRY/XAlsf6QnKtI/AAAAAAAABuw/IsHoSSZVBT8DIBmQ9bNKrPSbtQjCPvzcwCLcBGAs/s1600/Untitled.png" width="300" height="auto"/>
     
-(Source: [mmrcse.blogspot.com](https://mmrcse.blogspot.com))
+(Source: [mmrcse.blogspot.com](https://mmrcse.blogspot.com/2018/12/explain-different-types-of-bus-of.html))
 
 The CPU, RAM and I/O devices are connected to a system bus that carries information to-and-fro, working as a proxy to determine where a data instruction should be sent. 
 
@@ -208,7 +208,7 @@ It also may contain:
 
 <img src="CPU-fetch-execute-cycle.png" width="550" height="auto"/>
     
-(Source: [Youtube @Craig'n'Dave](https://www.youtube.com/channel/UC0HzEBLlJxlrwBAHJ5S9JQg))
+(Source: [Youtube, Craig'n'Dave](https://www.youtube.com/watch?v=OTDTdTYld2g))
 
 On boot, the PC is predefined by the system's architecture, and these typically points to the set of instructions in the ROM (Read-Only Memory).
 
@@ -220,17 +220,17 @@ This cycle is then repeated until shutdown occurs.
 
 <img src="https://i2.wp.com/itsfoss.com/wp-content/uploads/2019/12/grub_screen.png?fit=800%2C450&ssl=1" width="350" height="auto"/>
     
-(Source: [itsfoss.com](https://itsfoss.com/) - _Example of GNU GRUB loading during second boot process_)
+(Source: [itsfoss.com, Abhishek Prakash](https://itsfoss.com/update-grub/) - _Example of GNU GRUB loading during second boot process_)
     
 <img src="https://blog.knoldus.com/wp-content/uploads/2021/01/BIOS-vs-UEFI-1416318644-1611826043375.png" width="350" height="auto">
     
-(Source: [knoldus.com](https://blog.knoldus.com) - _The differences between UEFI/BIOS booting process_)
+(Source: [knoldus.com, Pratik Kumar](https://blog.knoldus.com/uefi-v-s-bios/) - _The differences between UEFI/BIOS booting process_)
     
 The ROM stores the instructions (read-only), that is retrieved by the CPU to start executing the instructions when the reset button (aka bootup). In the ROM, it may contain firmware such as the bootloader (e.g. BIOS/UEFI) in the first stage boot process, which initialises the OS (Operating System). It finds the configured primary boot device known as the MBR (Master Boot Record) that is the first sector of the bootable storage disk. The second stage boot process may involve systems (e.g. GNU GRUB) that loads an operating system properly and allow the transfers of execution to it (and may load extra device drivers). 
 
 <img src="https://static.thegeekstuff.com/wp-content/uploads/2011/02/linux-boot-process.png" width="350" height="auto">
     
-(Source: [thegeekstuff.com - @RAMESH NATARAJAN](https://thegeekstuff.com/) - _Example of a BIO -> GNU GRUB -> Linux OS booting process_)
+(Source: [thegeekstuff.com - @RAMESH NATARAJAN](https://www.thegeekstuff.com/2011/02/linux-boot-process) - _Example of a BIO -> GNU GRUB -> Linux OS booting process_)
     
 During the OS booting, the core primary program loaded is the [kernel](https://en.wikipedia.org/wiki/Kernel_(operating_system)) on startup after the bootloader as it handles all its processes (e.g. memory management, task scheduling, I/O), then the main user space file system and the system init scripts for Linux OS. 
 
