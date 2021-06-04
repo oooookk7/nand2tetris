@@ -36,6 +36,14 @@ This is the default state when no voltage is applied to the gate, since the n-ty
 
 When positive voltage is applied to the gate, it attracts the electrons from the n-type to the p-type and overcomes the repulsion from the depletion layer (and hence shrinking it). Electric current would flow from source to sink, thus making the `1` state. _Point to recap is that particles becomes negatively charged when it gains electrons, and positively charged when it lacks electrons._
 
+<img src="https://r2.community.samsung.com/t5/image/serverpage/image-id/933151iF107CE9663CFCA6D?v=1.0" width="350" height="auto" />
+
+(Source: [Samsung](https://community.samsung.com))
+
+In the case of a flash memory cell (e.g. used for flash storage), it uses a (https://en.wikipedia.org/wiki/Floating-gate_MOSFET)), where it contains two gates instead of one, where the top gate is called the CG (Control Gate) and the bottom is FG (Floating Gate). Because the FG is insulated by a sourrounding oxide, the electrons in the FG are trapped and will retain in there for years.
+
+Turning on the voltage on the CG would cause the electrons to be pulled up to the floating gate, and when there are electrons trapped, the electrons cannot pass through the well due to the efficacy of a barrier similar to the depletion layer, hence interpreted as `0`. When there is none, electrons can pass through the well and hence interpreted as `1`. 
+
 
 ## [Project 2](https://www.nand2tetris.org/project02): Boolean Arithmetic
 
@@ -113,7 +121,7 @@ The Hack assembly commands can be found in the PDF tutorial for "Project 4" in [
 
 ## [Project 5](https://www.nand2tetris.org/project05): Computer Architecture
 
-Focuses on the building a computer based on the [Von Neumann architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture) using CPU, ROM, RAM, Scree and Keyboard.
+Focuses on the building a computer based on the [Von Neumann architecture](https://en.wikipedia.org/wiki/Von_Neumann_architecture) using CPU, ROM, RAM, Screen and Keyboard.
 
 ### Instruction Format:
 
@@ -216,7 +224,7 @@ The ROM stores the instructions (read-only), that is retrieved by the CPU to sta
     
 (Source: [Quora](https://www.quora.com/) - _Example of a BIO -> GNU GRUB -> Linux OS booting process_)
     
-During the OS booting, the core primary program loaded is the [kernel](https://en.wikipedia.org/wiki/Kernel_(operating_system)) on startup after the bootloader as it handles all its processes (e.g. memory management, task scheduling, I/O), then the main user space file system and the system init scripts for Linux OS. The 
+During the OS booting, the core primary program loaded is the [kernel](https://en.wikipedia.org/wiki/Kernel_(operating_system)) on startup after the bootloader as it handles all its processes (e.g. memory management, task scheduling, I/O), then the main user space file system and the system init scripts for Linux OS. 
 
 Each instruction passed to the CPU is either stored/fetched to/from the Address register or Data register, and the PC increments (which may be skip if command is JMP) and hence executing the next instruction.
 
