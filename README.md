@@ -38,11 +38,19 @@ When positive voltage is applied to the gate, it attracts the electrons from the
 
 <img src="https://r2.community.samsung.com/t5/image/serverpage/image-id/933151iF107CE9663CFCA6D?v=1.0" width="350" height="auto" />
 
-(Source: [Samsung](https://community.samsung.com))
+(Source: [Samsung - @ddrs](https://r2.community.samsung.com/t5/user/viewprofilepage/user-id/3474922))
 
 In the case of a flash memory cell (e.g. used for flash storage), it uses a [Floating-gate MOSFET](https://en.wikipedia.org/wiki/Floating-gate_MOSFET), where it contains two gates instead of one, where the top gate is called the CG (Control Gate) and the bottom is FG (Floating Gate). Because the FG is insulated by a sourrounding oxide, the electrons in the FG are trapped and will retain in there for years.
 
 Turning on the voltage on the CG would cause the electrons to be pulled up to the floating gate, and when there are electrons trapped, the electrons cannot pass through the well due to the efficacy of a barrier similar to the depletion layer, hence interpreted as `0`. When there is none, electrons can pass through the well and hence interpreted as `1`. 
+
+<img src="https://www.researchgate.net/profile/Jagan-Meena/publication/265727614/figure/fig8/AS:201522748104719@1425058175786/Comparison-of-NOR-Flash-array-and-NAND-Flash-array-architectures.png" width="150" height="auto" />
+
+(Source: [ResearchGate - @Jagan Meena](https://www.researchgate.net/profile/Jagan-Meena))
+
+The common types are the NAND and NOR gate flash memory cells. Generally, NAND cells are much prefer due to the NOR larger cell size resulting in a higher cost per bit and slower write and erase speeds. However, NOR cell are more reliable and rarely go through an issue like bit-flipping where some bits gets reversed, causing NAND flashes to be shipped with bad blocks scattered randomly through, having to manage bad block handling, as they are shipped with zero bad blocks with low bad block accumulation during its lifespan. In terms of power, NOR flash may typically require more current than NAND flash in the initial power on, but its standby current is much lower than NAND flash. Both instantaneous active power is comparable for both.
+
+These cells are then stacked according to its gate type to form multi-bit level cells, forming a SSD (or a flash memory).
 
 
 ## [Project 2](https://www.nand2tetris.org/project02): Boolean Arithmetic
