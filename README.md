@@ -44,7 +44,7 @@ In the case of a flash memory cell (e.g. used for flash storage), it uses a [Flo
 
 Turning on the voltage on the CG would cause the electrons to be pulled up to the floating gate, and when there are electrons trapped, the electrons cannot pass through the well due to the efficacy of a barrier similar to the depletion layer, hence interpreted as `0`. When there is none, electrons can pass through the well and hence interpreted as `1`. 
 
-<img src="https://www.researchgate.net/profile/Jagan-Meena/publication/265727614/figure/fig8/AS:201522748104719@1425058175786/Comparison-of-NOR-Flash-array-and-NAND-Flash-array-architectures.png" width="150" height="auto" />
+<img src="https://www.researchgate.net/profile/Jagan-Meena/publication/265727614/figure/fig8/AS:201522748104719@1425058175786/Comparison-of-NOR-Flash-array-and-NAND-Flash-array-architectures.png" width="200" height="auto" />
 
 (Source: [ResearchGate - @Jagan Meena](https://www.researchgate.net/profile/Jagan-Meena))
 
