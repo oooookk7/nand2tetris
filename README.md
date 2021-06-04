@@ -40,7 +40,7 @@ When positive voltage is applied to the gate, it attracts the electrons from the
 
 (Source: [Samsung](https://community.samsung.com))
 
-In the case of a flash memory cell (e.g. used for flash storage), it uses a (https://en.wikipedia.org/wiki/Floating-gate_MOSFET)), where it contains two gates instead of one, where the top gate is called the CG (Control Gate) and the bottom is FG (Floating Gate). Because the FG is insulated by a sourrounding oxide, the electrons in the FG are trapped and will retain in there for years.
+In the case of a flash memory cell (e.g. used for flash storage), it uses a [Floating-gate MOSFET](https://en.wikipedia.org/wiki/Floating-gate_MOSFET), where it contains two gates instead of one, where the top gate is called the CG (Control Gate) and the bottom is FG (Floating Gate). Because the FG is insulated by a sourrounding oxide, the electrons in the FG are trapped and will retain in there for years.
 
 Turning on the voltage on the CG would cause the electrons to be pulled up to the floating gate, and when there are electrons trapped, the electrons cannot pass through the well due to the efficacy of a barrier similar to the depletion layer, hence interpreted as `0`. When there is none, electrons can pass through the well and hence interpreted as `1`. 
 
