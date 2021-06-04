@@ -228,9 +228,9 @@ This cycle is then repeated until shutdown occurs.
     
 The ROM stores the instructions (read-only), that is retrieved by the CPU to start executing the instructions when the reset button (aka bootup). In the ROM, it may contain firmware such as the bootloader (e.g. BIOS/UEFI) in the first stage boot process, which initialises the OS (Operating System). It finds the configured primary boot device known as the MBR (Master Boot Record) that is the first sector of the bootable storage disk. The second stage boot process may involve systems (e.g. GNU GRUB) that loads an operating system properly and allow the transfers of execution to it (and may load extra device drivers). 
 
-<img src="https://qph.fs.quoracdn.net/main-qimg-97e79f7eb02dce61dc9a6c9cafef606f.webp" width="350" height="auto">
+<img src="https://static.thegeekstuff.com/wp-content/uploads/2011/02/linux-boot-process.png" width="350" height="auto">
     
-(Source: [Quora](https://www.quora.com/) - _Example of a BIO -> GNU GRUB -> Linux OS booting process_)
+(Source: [thegeekstuff.com - @RAMESH NATARAJAN](https://thegeekstuff.com/) - _Example of a BIO -> GNU GRUB -> Linux OS booting process_)
     
 During the OS booting, the core primary program loaded is the [kernel](https://en.wikipedia.org/wiki/Kernel_(operating_system)) on startup after the bootloader as it handles all its processes (e.g. memory management, task scheduling, I/O), then the main user space file system and the system init scripts for Linux OS. 
 
