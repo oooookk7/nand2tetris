@@ -18,7 +18,7 @@ The primitive chips can be found in the tutorial for "Hardware Simulator" in [he
 
 ### How does the [MOSFET](https://en.wikipedia.org/wiki/MOSFET) transistor works?
 
-<img src="https://lh3.googleusercontent.com/proxy/psU23BjRfr_s72B2i4QfyQkG5GVO74nyIDHr7r7__vye_DL0EP6gHOuCSnqnsVG47sObUZ0reHIJPntQQrwgyntgJ2rfbX59oIhmHKB3Ad11LQ" width="350" height="auto"/>
+<img src="http://fourier.eng.hmc.edu/e84/lectures/figures/MOSFET.gif" width="350" height="auto"/>
 
 (Source: [Harvey Mudd College, n.d.](http://fourier.eng.hmc.edu/e84/lectures/ch4/node13.html))
 
