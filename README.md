@@ -42,7 +42,7 @@ When positive voltage is applied to the gate, it attracts the electrons from the
 
 In the case of a flash memory cell (e.g. used for flash storage), it uses a [Floating-gate MOSFET](https://en.wikipedia.org/wiki/Floating-gate_MOSFET), where it contains two gates instead of one, where the top gate is called the CG (Control Gate) and the bottom is FG (Floating Gate). Because the FG is insulated by a sourrounding oxide, the electrons in the FG are trapped and will retain in there for years.
 
-Turning on the voltage on the CG would cause the electrons to be pulled up to the floating gate, and when there are electrons trapped, the electrons cannot pass through the well due to the efficacy of a barrier similar to the depletion layer, hence interpreted as `0`. When there is none, electrons can pass through the well and hence interpreted as `1`. 
+Turning on the voltage on the CG would cause the electrons to be pulled up to the floating gate, and when there are electrons trapped. When it gets read, the reference voltage is applied and the electrons cannot pass through the well due to the efficacy of a barrier similar to the depletion layer, hence interpreted as `0`. To erase the read, a negative voltage is applied on the CG along with high voltage from the source to sink causing the electrons stored in the floating gate to go down to the well. When there are no electrons stored in the floating  gate, the reference voltage can pass through the well and hence interpreted as `1`. 
 
 <img src="https://www.researchgate.net/profile/Jagan-Meena/publication/265727614/figure/fig8/AS:201522748104719@1425058175786/Comparison-of-NOR-Flash-array-and-NAND-Flash-array-architectures.png" width="200" height="auto" />
 
