@@ -268,10 +268,10 @@ For reserved symbols:
 | Symbols | Address | Description |
 | ------- | ------- | -------- |
 | `SP` | `0` | Stack pointer |
-| `LCL` | `1` | Pre-existing pointer reference |
-| `ARG` | `2` | Pre-existing pointer reference |
-| `THIS` | `3` | Pre-existing pointer reference |
-| `THAT` | `4` | Pre-existing pointer reference |
+| `LCL` | `1` | Local pointer reference |
+| `ARG` | `2` | Argument pointer reference |
+| `THIS` | `3` | This pointer reference |
+| `THAT` | `4` | That pointer reference |
 | `SCREEN` | `16384` | Display screen |
 | `KBD` | `24576` | Keyboard |
 | `R`[`0`-`15`] | `0` - `15` | Available RAM address for allocation |
