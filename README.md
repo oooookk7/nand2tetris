@@ -265,16 +265,16 @@ The SymbolTable module translates the symbols (or variables) into actual address
 
 For reserved symbols:
 
-| Symbols | Address |
-| ------- | ------- |
-| `SP` | `0` |
-| `LCL` | `1` |
-| `ARG` | `2` |
-| `THIS` | `3` |
-| `THAT` | `4` |
-| `SCREEN` | `16384` |
-| `KBD` | `24576` |
-| `R`[`0`-`15`] | `0` - `15` |
+| Symbols | Address | Description |
+| ------- | ------- | -------- |
+| `SP` | `0` | Stack pointer |
+| `LCL` | `1` | Pre-existing pointer reference |
+| `ARG` | `2` | Pre-existing pointer reference |
+| `THIS` | `3` | Pre-existing pointer reference |
+| `THAT` | `4` | Pre-existing pointer reference |
+| `SCREEN` | `16384` | Display screen |
+| `KBD` | `24576` | Keyboard |
+| `R`[`0`-`15`] | `0` - `15` | Available RAM address for allocation |
 
 New variables must be stored from address `16` onward.
 
